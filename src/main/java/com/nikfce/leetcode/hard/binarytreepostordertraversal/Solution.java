@@ -1,4 +1,4 @@
-package com.nikfce.leetcode.hard.binarytreepostorder;
+package com.nikfce.leetcode.hard.binarytreepostordertraversal;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.nikfce.leetcode.hard.cooksequence;
+package com.nikfce.leetcode.hard.reducingdishes;
 
 import java.util.Arrays;
 

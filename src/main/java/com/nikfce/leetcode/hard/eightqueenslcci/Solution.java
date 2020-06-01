@@ -1,25 +1,34 @@
-package com.nikfce.leetcode.hard.nqueens2;
+package com.nikfce.leetcode.hard.eightqueenslcci;
+
+import com.alibaba.fastjson.JSON;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 暴力回溯...
  * @author shenzhencheng on 2020/5/22
  */
 public class Solution {
 
-    // 结果
-    private static int count = 0;
+    private static List<List<String>> result = new ArrayList<>();
 
-    public static int totalNQueens(int n) {
+    public static List<List<String>> solveNQueens(int n) {
         if (n == 0 || n == 2 || n == 3) {
-            return 0;
+            return result;
         }
         if (n == 1) {
-            return 1;
+            result.add(new ArrayList<String>() {
+                {
+                    add("Q");
+                }
+            });
+            return result;
         }
         int[][] a = new int[n][n];
         execute(a, 0);
-        return count;
+        return result;
     }
+
 
     /**
      * 递归回溯函数,表示本要寻找a数组第i行皇后应该放在哪
@@ -33,7 +42,9 @@ public class Solution {
         for (int l = 0 ; l < a.length ; l ++) {
             if (adjust(a, i, l)) {
                 if (i == a.length - 1) {
-                    count ++;
+                    a[i][l] = 1;
+                    result.add(array2List(a));
+                    a[i][l] = 0;
                     return ;
                 }
                 a[i][l] = 1;
@@ -42,6 +53,22 @@ public class Solution {
             }
         }
 
+    }
+
+    private static List<String> array2List(int[][] a) {
+        List<String> r = new ArrayList<>();
+        for (int i = 0 ; i < a.length ; i ++) {
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0 ; j < a.length ; j ++) {
+                if (a[i][j] == 1) {
+                    sb.append('Q');
+                } else {
+                    sb.append('.');
+                }
+            }
+            r.add(sb.toString());
+        }
+       return r;
     }
 
     /**
@@ -81,7 +108,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(totalNQueens(5));
+        System.out.println(JSON.toJSONString(solveNQueens(1)));
     }
 
 }

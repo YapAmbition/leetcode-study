@@ -1,4 +1,4 @@
-package com.nikfce.leetcode.hard.binarytreepostorder;
+package com.nikfce.leetcode.hard.binarytreepostordertraversal;
 
 /**
  * @author shenzhencheng on 2020/5/22
