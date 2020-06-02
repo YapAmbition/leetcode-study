@@ -5,6 +5,9 @@ package com.nikfce.leetcode.medium.uniquepaths;
  */
 public class Solution {
 
+    /**
+     * 动态规划,位置从(0,0)到(i,j)的路有(i-1,j)+(i,j-1)条
+     */
     public static int uniquePaths(int m, int n) {
         int[][] dp = new int[n][m];
         for (int i = 0 ; i < m ; i ++) {
@@ -21,7 +24,9 @@ public class Solution {
         return dp[n - 1][m - 1];
     }
 
+
+
     public static void main(String[] args) {
-        System.out.println(uniquePaths(3,2));
+        System.out.println(uniquePaths(10,10));
     }
 }
